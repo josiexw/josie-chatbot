@@ -37,6 +37,7 @@ decorator==5.1.1
 Deprecated==1.2.14
 dill==0.3.8
 distro==1.9.0
+dj-database-url==2.2.0
 Django==5.0.6
 django-cors-headers==4.4.0
 dm-tree==0.1.8
@@ -145,6 +146,7 @@ preshed==3.0.9
 prompt-toolkit==3.0.43
 protobuf==4.25.3
 psutil==5.9.8
+psycopg2-binary==2.9.9
 pulsar-client==3.5.0
 pure-eval==0.2.2
 pyasn1==0.6.0
