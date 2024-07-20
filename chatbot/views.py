@@ -68,39 +68,7 @@ def get_assistant(request):
     global assistant_id, vector_store_id
 
     try:
-        file_path = os.path.join(os.path.dirname(__file__), 'files/knowledge.txt')
-        with open(file_path, 'rb') as f:
-            file = client.files.create(file=f, purpose="assistants")
-
-        vector_store = client.beta.vector_stores.create(
-            name="Josie Information",
-            expires_after={"anchor": "last_active_at", "days": 7}
-        )
-        vector_store_id = vector_store.id
-        logger.debug(vector_store_id)
-
-        vector_store_file = client.beta.vector_stores.files.create(vector_store_id=vector_store_id, file_id=file.id)
-        vector_store_file_id = vector_store_file.id
-        logger.debug(vector_store_file_id)
-
-        POLL_INTERVAL = 1
-        time.sleep(POLL_INTERVAL)
-        logger.debug("Successfully created vector store")
-
-        assistant = client.beta.assistants.create(
-            name="Josie",
-            instructions=get_instructions(),
-            tools=[{"type": "file_search"}],
-            model="gpt-4-1106-preview",
-        )
-        assistant_id = assistant.id
-
-        client.beta.assistants.update(
-            assistant_id,
-            tool_resources={"file_search": {"vector_store_ids": [vector_store_id]}},
-        )
-
-        logger.debug("Assistant ID:", assistant_id)
+        assistant_id = 'asst_A3YGhsDgqZdYk85UyXsRiX6s'
         return JsonResponse({'assistant_id': assistant_id})
 
     except Exception as e:
