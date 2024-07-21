@@ -150,7 +150,9 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-CORS_ALLOWED_ORIGINS = ['https://josiexw.github.io/']
+CORS_ALLOWED_ORIGINS = ['https://josiexw.github.io/',]
+
+CORS_ALLOW_CREDENTIALS = True
 
 import dotenv
 import os
